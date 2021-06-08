@@ -2,16 +2,16 @@
 
 ## users テーブル
 
-| Column               | Type   | Options                  |
-| -------------------- | ------ | ------------------------ |
-| nickname             | string | null: false              |
-| email                | string | null: false, unique: true|
-| encrypted_password   | string | null: false              |
-| first_name           | string | null: false              |
-| last_name            | string | null: false              |
-| first_name(furigana) | string | null: false              |
-| last_name(furigana)  | string | null: false              |
-| birthday             | date   | null: false              |
+| Column              | Type   | Options                  |
+| ------------------- | ------ | ------------------------ |
+| nickname            | string | null: false              |
+| email               | string | null: false, unique: true|
+| encrypted_password  | string | null: false              |
+| first_name          | string | null: false              |
+| last_name           | string | null: false              |
+| first_name_furigana | string | null: false              |
+| last_name_furigana  | string | null: false              |
+| birthday            | date   | null: false              |
 
 ### Association
 
@@ -20,18 +20,17 @@
 
 ## items テーブル
 
-| Column          | Type       | Options                        |
-| --------------- | ---------- | ------------------------------ |
-| image           | string     | null: false                    |
-| title           | string     | null: false                    |
-| description     | text       | null: false                    |
-| category        | string     | null: false                    |
-| item_status     | string     | null: false                    |
-| delivery_charge | string     | null: false                    |
-| shipping_area   | string     | null: false                    |
-| delivery_date   | date       | null: false                    |
-| cost            | string     | null: false                    |
-| user_id         | references | null: false, foreign_key: true |
+| Column             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| title              | string     | null: false                    |
+| description        | text       | null: false                    |
+| category_id        | integer    | null: false                    |
+| item_status_id     | integer    | null: false                    |
+| delivery_charge_id | integer    | null: false                    |
+| shipping_area_id   | integer    | null: false                    |
+| delivery_date_id   | integer    | null: false                    |
+| cost               | integer    | null: false                    |
+| user               | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -40,10 +39,10 @@
 
 ## parchases テーブル
 
-| Column    | Type       | Options                        |
-| --------- | ---------- | ------------------------------ |
-| user_id   | references | null: false, foreign_key: true |
-| item_id   | references | null: false, foreign_key: true |
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| user   | references | null: false, foreign_key: true |
+| item   | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -56,12 +55,12 @@
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
 | postal_code   | string     | null: false                    |
-| prefectures   | string     | null: false                    |
+| prefectures   | integer    | null: false                    |
 | municipality  | string     | null: false                    |
 | adress        | string     | null: false                    |
-| building_name | string     | null: false                    |
+| building_name | string     |                                |
 | phone_number  | string     | null: false                    |
-| parchase_id   | references | null: false, foreign_key: true |
+| parchase      | references | null: false, foreign_key: true |
 
 ### Association
 
