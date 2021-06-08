@@ -13,7 +13,7 @@
                 <mxCell id="6" value="items" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="440" y="40" width="160" height="180" as="geometry"/>
                 </mxCell>
-                <mxCell id="7" value="image&#10;title&#10;description&#10;category_id&#10;item_status_id&#10;delivery_charge_id&#10;shipping_area_id&#10;delivery_date_id&#10;cost&#10;user" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="6" vertex="1">
+                <mxCell id="7" value="image&#10;title&#10;description&#10;category_id&#10;item_status_id&#10;delivery_charge_id&#10;prefecture_id&#10;delivery_date_id&#10;cost&#10;user" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="6" vertex="1">
                     <mxGeometry y="26" width="160" height="154" as="geometry"/>
                 </mxCell>
                 <mxCell id="11" value="parchases" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
