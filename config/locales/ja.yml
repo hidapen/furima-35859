@@ -1,0 +1,14 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        nickname: ニックネーム
+        email: メールアドレス
+        password: パスワード
+        first_name: お名前（名）
+        last_name: お名前（姓）
+        first_name_furigana: お名前(名ふりがな)
+        last_name_furigana: お名前(姓ふりがな)
+        birthday: お誕生日
