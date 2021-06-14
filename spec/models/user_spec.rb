@@ -59,6 +59,11 @@ RSpec.describe User, type: :model do
         another_user.valid?
         expect(another_user.errors.full_messages).to include('メールアドレスはすでに存在します')
       end
+      it "emailが@がなければ登録できない" do
+        @user.email = 'aaaaaa'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("メールアドレスは不正な値です")
+      end
       it "passwordが空では登録できない" do
         @user.password = ''
         @user.valid?
