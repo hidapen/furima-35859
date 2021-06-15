@@ -18,6 +18,7 @@ class Item < ApplicationRecord
   end
 
   with_options presence: true do
+    validates :image
     validates :title
     validates :description
     validates :category_id
@@ -26,13 +27,5 @@ class Item < ApplicationRecord
     validates :prefecture_id
     validates :delivery_date_id
     validates :cost, format: { with: /\A[a-z0-9]+\z/}, length: {minimum: 3, maxinum: 7},numericality: { only_integer: true,greater_than: 300, less_than: 10000000}
-    validates :text
-    validates :user
-  end
-
-  validates :content, presence: true, unless: :was_attached?
-
-  def was_attached?
-    self.image.attached?
   end
 end
