@@ -33,25 +33,50 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("カテゴリーを入力してください")
       end
+      it 'カテゴリー情報で初期値の---を選択したときは保存ができないこと' do
+        @item.category_id = '---'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("カテゴリーは数値で入力してください")
+      end
       it '商品の状態の情報がなければ保存されないこと' do
         @item.item_status_id = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("商品の状態を入力してください")
+      end
+      it '商品の状態の情報で初期値の---を選択したときは保存ができないこと' do
+        @item.item_status_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("商品の状態は数値で入力してください")
       end
       it '配送料の負担の情報がなければ保存されないこと' do
         @item.delivery_charge_id = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("配送料の負担を入力してください")
       end
+      it '配送料の負担の情報で初期値の---を選択したときは保存ができないこと' do
+        @item.delivery_charge_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("配送料の負担は数値で入力してください")
+      end
       it '発送元の地域の情報がなければ保存できないこと' do
         @item.prefecture_id = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("発送元の地域を入力してください")
       end
+      it '発送元の地域の情報で初期値の---を選択したときは保存ができないこと' do
+        @item.prefecture_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("発送元の地域は数値で入力してください")
+      end
       it '発送までの日数の情報がなければ保存できないこと' do
         @item.delivery_date_id = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("発送までの日数を入力してください")
+      end
+      it '発送までの日数の情報で初期値の---を選択したときは保存ができないこと' do
+        @item.delivery_date_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("発送までの日数は数値で入力してください")
       end
       it '価格の情報がなければ保存できないこと' do
         @item.cost = nil
@@ -62,6 +87,26 @@ RSpec.describe Item, type: :model do
         @item.cost = '１０００'
         @item.valid?
         expect(@item.errors.full_messages).to include("価格は数値で入力してください")
+      end
+      it '商品価格が半角英数字混合では出品できない' do
+        @item.cost = '111aaa'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("価格は数値で入力してください")
+      end
+      it '商品価格が半角英字のみでは出品できない' do
+        @item.cost = 'aaaa'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("価格は数値で入力してください")
+      end
+      it '商品価格が299円以下だと登録ができない' do
+        @item.cost = 100
+        @item.valid?
+        expect(@item.errors.full_messages).to include("価格は300より大きい値にしてください")
+      end
+      it '商品価格が10000000円以上だと登録ができない' do
+        @item.cost = 10000000000
+        @item.valid?
+        expect(@item.errors.full_messages).to include("価格は10000000より小さい値にしてください")
       end
     end
   end
