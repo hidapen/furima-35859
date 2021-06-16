@@ -12,3 +12,13 @@ ja:
         first_name_furigana: お名前(名ふりがな)
         last_name_furigana: お名前(姓ふりがな)
         birthday: お誕生日
+      item:
+        image: 画像
+        title: 商品名
+        description: 商品の説明
+        category_id: カテゴリー
+        item_status_id: 商品の状態
+        delivery_charge_id: 配送料の負担
+        prefecture_id: 発送元の地域
+        delivery_date_id: 発送までの日数
+        cost: 価格
