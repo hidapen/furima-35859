@@ -16,7 +16,7 @@
 ### Association
 
 - has_many :items
-- has_many :parchases
+- has_many :orders
 
 ## items テーブル
 
@@ -35,9 +35,9 @@
 ### Association
 
 - belongs_to :user
-- has_one :parchase
+- has_one :oder
 
-## parchases テーブル
+## orders テーブル
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
@@ -64,4 +64,4 @@
 
 ### Association
 
-- belongs_to :parchase
+- belongs_to :order
