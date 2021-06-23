@@ -3,7 +3,9 @@ require 'rails_helper'
 RSpec.describe OrderAddress, type: :model do
   describe '購入情報の保存' do
     before do
-      @order_address = FactoryBot.build(:order_address)
+      @user = FactoryBot.create(:user)
+      @item = FactoryBot.create(:item)
+      @order_address = FactoryBot.build(:order_address, user_id: @user.id, item_id: @item.id)
     end
 
     context '内容に問題ない場合' do
@@ -62,11 +64,22 @@ RSpec.describe OrderAddress, type: :model do
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Postal codeはハイフンを含めてください")
       end
-      it 'phone_numberが10桁以上11桁以内の半角数値でないと保存できないこと' do
+      it 'prefecture_idが1だと保存できないこと' do
+        @order_address.prefecture_id = '1'
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("Prefectureは1以外の値にしてください")
+      end
+      it 'phone_numberが10桁以下の半角数値でないと保存できないこと' do
         @order_address.phone_number = '12345'
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Phone numberは不正な値です")
       end
+      it 'phone_numberが12桁以上の半角数値でないと保存できないこと' do
+        @order_address.phone_number = '123456789101'
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("Phone numberは不正な値です")
+      end
+
     end
   end
 end
