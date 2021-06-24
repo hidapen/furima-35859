@@ -72,7 +72,7 @@ RSpec.describe User, type: :model do
       it 'passwordが存在してもpassword_confirmationが空では登録できない' do
         @user.password_confirmation = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password confirmationとパスワードの入力が一致しません")
+        expect(@user.errors.full_messages).to include("パスワード（確認用）とパスワードの入力が一致しません")
       end
       it "passwordが5文字以下では登録できない" do
         @user.password = '00000'
@@ -100,7 +100,7 @@ RSpec.describe User, type: :model do
         @user.password = '000aaa'
         @user.password_confirmation = '111bbb'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password confirmationとパスワードの入力が一致しません")
+        expect(@user.errors.full_messages).to include("パスワード（確認用）とパスワードの入力が一致しません")
       end
       it "first_nameが空だと登録できない" do
         @user.first_name = ''
